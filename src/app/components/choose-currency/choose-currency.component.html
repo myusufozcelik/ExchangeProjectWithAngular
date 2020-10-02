@@ -1,0 +1,47 @@
+<body>
+    
+
+        <main>
+            <section class="presentation">
+                <div class="introduction">
+                    <div class="intro-text">
+                       
+                      
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <!--Combobox gelecek-->
+                       
+
+                        <form class="example-form">
+                          <mat-form-field class="example-full-width">
+                            <input type="text" #currencyValue
+                                   placeholder="Please, enter currency"
+                                   aria-label="Number"
+                                   matInput
+                                   [formControl]="myControl"
+                                   [matAutocomplete]="auto">
+                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option}}
+                              </mat-option>
+                            </mat-autocomplete>
+                          </mat-form-field>
+                        </form>
+
+                    
+
+                        </div>
+                        
+                    
+              </div>
+              <div style="margin-right: 280px;">
+
+                <button class="buttonSearch" (click)="getCurrency(currencyValue.value)">Search</button>
+              </div>
+
+            </section>
+ <app-currency-table [chooseVal] = "chooseValue" [perUnit]="rates" [chooseCurrency]="currencyValue.value" ></app-currency-table>
+
+        </main>
+
+</body>

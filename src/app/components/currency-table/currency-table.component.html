@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Currency Table</h2>
+    
+    <div style="text-align: center; text-decoration: none;">
+        <small><b>{{chooseCurrency || 'EUR'}}  </b> /  {{currencyDate}}  </small>
+    </div>
+    
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">ID</div>
+        <div class="col col-2">Currency Name</div>
+        <div class="col col-3">Units Per {{chooseCurrency || 'EUR'}}</div>
+        <div class="col col-4">{{chooseCurrency || 'EUR'}} per Unit</div>
+      </li>
+      <li class="table-row"*ngFor="let money of rates | keyvalue;  let i=index;">
+        <div class="col col-1">{{i+1}}</div>
+        <div class="col col-2">{{money.key}}</div>
+        <div class="col col-3">{{money.value}}</div>
+        <div class="col col-4">{{1/money.value}}</div>
+      </li>
+
+    </ul>
+
+  </div>
